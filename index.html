@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of African Space Agencies: An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #00001a;
+            background-image: url('https://placehold.co/1920x1080/00001a/ffffff?text=Deep+Space+Background');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #E5E7EB;
+        }
+        .container {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        h1, h2, h3 {
+            color: #6495ED;
+        }
+        p {
+            color: #BCC2CC;
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-600 selection:text-white">
+    <div id="pdf-content">
+        <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+            <header class="text-center my-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    Africa's New Frontier: The Rise of Space Exploration 🚀
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mt-4 max-w-3xl mx-auto">
+                    A visual journey through the establishment and focus of national and continental space agencies, showcasing Africa's ambition to reach for the stars. ⭐
+                </p>
+            </header>
+
+            <main>
+                <section class="rounded-xl p-6 mb-8 bg-black bg-opacity-30 shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-cyan-300">A Timeline of Ambition: Founding Years of African Space Agencies</h2>
+                    <p class="text-gray-400 mb-6">
+                        The last two decades have seen a significant surge in the establishment of space agencies across Africa. This timeline tracks the founding year of key players, showcasing the continent's growing commitment to space science and technology, culminating in the recent launch of the continental African Space Agency. 🛰️
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="foundingYearsChart"></canvas>
+                    </div>
+                </section>
+
+                <section class="rounded-xl p-6 mb-8 bg-black bg-opacity-30 shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-cyan-300">Core Missions: Comparing Agency Mandates</h2>
+                    <p class="text-gray-400 mb-6">
+                        While all agencies share a common goal of leveraging space for national benefit, their specific mandates vary. This chart compares the primary focus areas of different agencies, from Earth observation and satellite development to policy coordination and human capacity building.
+                    </p>
+                    <div class="chart-container" style="max-height: 60vh;">
+                        <canvas id="mandatesChart"></canvas>
+                    </div>
+                </section>
+                
+                <section class="rounded-xl p-6 mb-8 bg-black bg-opacity-30 shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-cyan-300">Focus on the Future: Key Mandate Areas</h2>
+                    <p class="text-gray-400 mb-6">
+                        Analyzing the collective mandates reveals common strategic priorities for the continent's space programs. This visualization breaks down the prevalence of key focus areas, illustrating the shared vision for a future driven by space technology. 🌌
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="chart-container" style="height: 350px; max-height: 45vh;">
+                            <canvas id="mandateDistributionChart"></canvas>
+                        </div>
+                        <div class="flex flex-col justify-center text-gray-300">
+                            <h3 class="text-xl font-semibold text-blue-400 mb-3">Primary Areas of Focus</h3>
+                            <p class="mb-2"><strong><span class="text-cyan-400">Earth Observation & Remote Sensing:</span></strong> A dominant focus, crucial for resource management, agriculture, and monitoring climate change.</p>
+                            <p class="mb-2"><strong><span class="text-cyan-400">Satellite Development:</span></strong> Building indigenous capabilities to design, construct, and operate satellites is a key ambition.</p>
+                            <p class="mb-2"><strong><span class="text-cyan-400">Policy & Coordination:</span></strong> Establishing robust national and continental space policies is fundamental for sustainable growth.</p>
+                            <p class="mb-2"><strong><span class="text-cyan-400">Human Capacity Building:</span></strong> Investing in education and training to create a skilled workforce is a universal priority.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="text-center mt-12 py-6">
+                <p class="text-gray-500">&copy; 2025 Africa Space Ungana. All data is for illustrative purposes.</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        const agencyData = [
+            { country: 'Nigeria', name: 'National Space Research and Development Agency', acronym: 'NASRDA', year: 1999, mandate: "Advancing space science and technology for sustainable national development and security." },
+            { country: 'Algeria', name: 'Algerian Space Agency', acronym: 'ASAL', year: 2002, mandate: "Designing and implementing Algeria's space policy, Earth observation, and satellite development." },
+            { country: 'South Africa', name: 'South African National Space Agency', acronym: 'SANSA', year: 2010, mandate: "Fostering research and development in space science, Earth observation, and space engineering." },
+            { country: 'Ghana', name: 'Ghana Space Science and Technology Centre', acronym: 'GSSTI', year: 2012, mandate: "Developing indigenous space science and technology, and building human capacity in space applications." },
+            { country: 'Angola', name: 'National Space Program Management Office', acronym: 'GGPEN', year: 2013, mandate: "Promoting the peaceful use of space, and developing national technological and human capabilities." },
+            { country: 'Ethiopia', name: 'Ethiopian Space Science and Technology Institute', acronym: 'ESSTI', year: 2016, mandate: "Promoting space science and technology for national development, particularly in remote sensing and astronomy." },
+            { country: 'Kenya', name: 'Kenya Space Agency', acronym: 'KSA', year: 2017, mandate: "Promoting, coordinating, and regulating space-related activities for socioeconomic development." },
+            { country: 'Egypt', name: 'Egyptian Space Agency', acronym: 'EGSA', year: 2018, mandate: "Developing and transferring space technology for sustainable development and national security." },
+            { country: 'African Union', name: 'African Space Agency', acronym: 'AfSA', year: 2023, mandate: "Coordinating and promoting cooperation among the space policies of African Union member states." }
+        ];
+
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const spacePalette = ['#00BFFF', '#4169E1', '#6495ED', '#ADD8E6', '#004AAD'];
+
+        // Update Chart.js defaults for a dark theme
+        Chart.defaults.color = '#E5E7EB';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.2)';
+
+        const foundingYearsCtx = document.getElementById('foundingYearsChart').getContext('2d');
+        new Chart(foundingYearsCtx, {
+            type: 'line',
+            data: {
+                labels: agencyData.map(a => a.acronym),
+                datasets: [{
+                    label: 'Founding Year',
+                    data: agencyData.map(a => a.year),
+                    borderColor: spacePalette[0],
+                    backgroundColor: 'rgba(0, 191, 255, 0.1)',
+                    fill: true,
+                    tension: 0.1,
+                    pointBackgroundColor: spacePalette[0],
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: spacePalette[0]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: {
+                            callback: function(value) {
+                                return Number.isInteger(value) ? value : null;
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += new Intl.NumberFormat('en-US').format(context.parsed.y);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const mandatesCtx = document.getElementById('mandatesChart').getContext('2d');
+        new Chart(mandatesCtx, {
+            type: 'bar',
+            data: {
+                labels: agencyData.map(a => wrapLabel(a.name)),
+                datasets: [
+                    { label: 'Earth Observation/Remote Sensing', data: [1, 1, 1, 0, 0, 1, 0, 1, 1], backgroundColor: spacePalette[0] },
+                    { label: 'Satellite Development/Tech', data: [1, 1, 1, 1, 1, 1, 0, 1, 0], backgroundColor: spacePalette[1] },
+                    { label: 'Policy/Coordination', data: [1, 1, 0, 0, 1, 0, 1, 0, 1], backgroundColor: spacePalette[2] },
+                    { label: 'Human Capacity/R&D', data: [1, 0, 1, 1, 1, 1, 1, 1, 0], backgroundColor: spacePalette[3] }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: { stacked: true, display: false },
+                    y: { stacked: true }
+                },
+                plugins: {
+                    tooltip: { callbacks: { title: tooltipTitleCallback } }
+                }
+            }
+        });
+        
+        const mandateKeywords = {
+            'Earth Observation & Remote Sensing': ['earth observation', 'remote sensing'],
+            'Satellite Development & Tech': ['satellite development', 'space technology'],
+            'Policy & Coordination': ['policy', 'coordinating', 'regulating', 'cooperation'],
+            'Human Capacity & R&D': ['human capacity', 'research and development', 'developing national', 'fostering research'],
+            'Socioeconomic Development': ['socioeconomic development', 'sustainable development']
+        };
+
+        const mandateCounts = Object.keys(mandateKeywords).reduce((acc, key) => ({ ...acc, [key]: 0 }), {});
+
+        agencyData.forEach(agency => {
+            const mandateText = agency.mandate.toLowerCase();
+            for (const key in mandateKeywords) {
+                if (mandateKeywords[key].some(keyword => mandateText.includes(keyword))) {
+                    mandateCounts[key]++;
+                }
+            }
+        });
+
+        const mandateDistributionCtx = document.getElementById('mandateDistributionChart').getContext('2d');
+        new Chart(mandateDistributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(mandateCounts),
+                datasets: [{
+                    data: Object.values(mandateCounts),
+                    backgroundColor: spacePalette,
+                    borderColor: '#111827',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            color: '#E5E7EB'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
